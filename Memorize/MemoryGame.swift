@@ -39,14 +39,11 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     mutating func choose(card: Card) {
         if let chosenIndex = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
             if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
-//                print(cards[chosenIndex].content)
-//                print(cards[potentialMatchIndex].content)
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                 }
             } else {
-                print("nao recebe index potencial")
                 for index in cards.indices {
                     cards[index].isFaceUp = false
                 }
